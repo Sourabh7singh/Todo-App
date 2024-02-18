@@ -1,23 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-            <a className="navbar-brand" href="/">Todo-App</a>
+            <Link className="navbar-brand" to="/">Todo-App</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/">Home</a>
+                        <Link className="nav-link" aria-current="page" to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/">About App</a>
+                        <Link className="nav-link" to="/about">About App</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Features</a>
+                        <Link className="nav-link" to="/features">Features</Link>
                     </li>
                 </ul>
             </div>
