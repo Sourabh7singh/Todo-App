@@ -21,8 +21,29 @@ const DataState = (props)=>{
         e.preventDefault();
         setItems(Items.filter((item)=> item.id !== id));
     }
+    const HandleMode=()=>{
+        const html = document.querySelector('html');
+        const nav = document.getElementById('Navbar');
+        const dark = document.getElementById('dark');
+        const light = document.getElementById('light');
+        if(html.getAttribute("data-bs-theme")==='light'||html.getAttribute("data-bs-theme")===null){
+            nav.setAttribute('data-bs-theme',"dark");
+            html.setAttribute('data-bs-theme',"dark");
+            dark.style.display='none';
+            light.style.display='block';
+            light.style.color='white';
+        }
+        else{
+            nav.setAttribute('data-bs-theme',"light");
+            html.setAttribute('data-bs-theme',"light");
+            dark.style.display='block';
+            light.style.display='none';
+
+        }
+
+    }
     return (
-        <DataContext.Provider value={{Items,setItems,AddTask,DeleteTask}}>
+        <DataContext.Provider value={{Items,setItems,AddTask,DeleteTask,HandleMode}}>
             {props.children}
         </DataContext.Provider>
     )
