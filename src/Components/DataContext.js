@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const DataContext = createContext();
 //Add all the tasks to the local storage of the user
 const DataState = (props)=>{
-    const [Items,setItems] = useState(JSON.parse(localStorage.getItem("task")||[]));
+    const [Items,setItems] = useState(JSON.parse(localStorage.getItem("task"))||[]);
     const AddTask = (e)=>{
         e.preventDefault();
         let name = document.getElementById("task").value;
