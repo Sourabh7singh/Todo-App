@@ -7,10 +7,10 @@ const About = () => {
     <>
       <Navbar/>
       <div className='container'>
-        <div class="card" style={{width: "80vw",height:'70vh'}}>
-          <img src={image} class="card-img-top" alt="..." style={{borderRadius:"5px",border:"2px solid black",boxShadow:"5px 5px 5px black"}}/>
-            <div class="card-body">
-              <p class="card-text">Its the snip of the app i built. It's a basic Todo app that i build using BootStrap and Reactjs.</p>
+        <div className="card" style={{width: "80vw",height:'70vh'}}>
+          <img src={image} className="card-img-top" alt="..." style={{borderRadius:"5px",border:"2px solid black",boxShadow:"5px 5px 5px black"}}/>
+            <div className="card-body">
+              <p className="card-text">Its the snip of the app i built. It's a basic Todo app that i build using BootStrap and Reactjs.</p>
               <p><strong>For future Scope Backend can be implemented which will use databse to store the data</strong></p>
             </div>
         </div>

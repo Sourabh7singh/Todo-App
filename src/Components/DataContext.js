@@ -1,9 +1,9 @@
 import { createContext, useState } from "react";
 
 export const DataContext = createContext();
-
+//Add all the tasks to the local storage of the user
 const DataState = (props)=>{
-    const [Items,setItems] = useState([]);
+    const [Items,setItems] = useState(JSON.parse(localStorage.getItem("task")||[]));
     const AddTask = (e)=>{
         e.preventDefault();
         let name = document.getElementById("task").value;
@@ -11,15 +11,23 @@ const DataState = (props)=>{
         let newDate = new Date();
         let date = newDate.getDate() +"-"+newDate.getMonth()+"-"+ newDate.getFullYear()+","+newDate.getHours()+":"+newDate.getMinutes();
         if(!name && !desc) return alert("Please fill all the fields");
-        if(Items.length===0) setItems(Items.concat({id:1,name,desc,date}));
-        else setItems(Items.concat({id:Items[Items.length-1].id+1,name,desc,date}));
+        if(Items.length===0) {
+            let newItems = Items.concat({id:1,name,desc,date});
+            setItems(newItems);
+            localStorage.setItem("task",JSON.stringify(newItems));
+        }
+        else{
+            let newItems = Items.concat({id:Items[Items.length-1].id+1,name,desc,date});
+            setItems(newItems);
+            localStorage.setItem("task",JSON.stringify(newItems));
+        }    
         document.getElementById("task").value="";
         document.getElementById("desc").value="";
-
     }
     const DeleteTask=(e,id)=>{
         e.preventDefault();
         setItems(Items.filter((item)=> item.id !== id));
+        return localStorage.setItem("task",JSON.stringify(Items.length>0?Items:""));
     }
     const HandleMode=()=>{
         const html = document.querySelector('html');
@@ -40,7 +48,6 @@ const DataState = (props)=>{
             light.style.display='none';
 
         }
-
     }
     return (
         <DataContext.Provider value={{Items,setItems,AddTask,DeleteTask,HandleMode}}>
