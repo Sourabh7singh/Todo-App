@@ -27,7 +27,7 @@ const DataState = (props)=>{
     const DeleteTask=(e,id)=>{
         e.preventDefault();
         setItems(Items.filter((item)=> item.id !== id));
-        return localStorage.setItem("task",JSON.stringify(Items.length>0?Items:""));
+        localStorage.setItem("task",JSON.stringify(Items.length>0?Items:""));
     }
     const HandleMode=()=>{
         const html = document.querySelector('html');
