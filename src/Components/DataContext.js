@@ -24,10 +24,10 @@ const DataState = (props)=>{
         document.getElementById("task").value="";
         document.getElementById("desc").value="";
     }
-    const DeleteTask=(e,id)=>{
-        e.preventDefault();
-        setItems(Items.filter((item)=> item.id !== id));
-        return localStorage.setItem("task",JSON.stringify(Items.length>0?Items:""));
+    const DeleteTask=(id)=>{
+        const newItems = Items.filter((item)=> item.id !== id);
+        setItems(newItems);
+        return localStorage.setItem("task",JSON.stringify(newItems));
     }
     const HandleMode=()=>{
         const html = document.querySelector('html');

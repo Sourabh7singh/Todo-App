@@ -13,7 +13,7 @@ const Card = (props) => {
                     {props.element.date}
                     <span className="visually-hidden">unread messages</span>
                 </span>
-                <button type="submit" onClick={(e) => DeleteTask(e, id)} className="btn btn-primary">Completed/Delete</button>
+                <button type="submit" onClick={(e) => DeleteTask(id)} className="btn btn-primary">Completed/Delete</button>
             </div>
         </div>
     )
